@@ -34,19 +34,22 @@ This project demonstrates how these challenges are addressed using SQL.
 ---
 
 ## Data Model (Simulated)
+This repository includes simulated CSV datasets in the `/data` folder:
 
 ### Source Tables
-- **LKP_EVENTS_CALENDAR**  
+- **`data/LKP_EVENTS_CALENDAR.csv`**  
   Event metadata and attendance by seating segment (General, Club, Suite, Courtside)
 
-- **LKP_STAND_LOCATIONS**  
+- **`data/LKP_STAND_LOCATIONS.csv`**  
   Stand-level attributes including department, stand type, and arena level
 
-- **LKP_ITEM_DETAILS**  
+- **`data/LKP_ITEM_DETAILS.csv`**  
   Item attributes including price, cost, and category hierarchy
 
-- **SRC_RAW_SALES_BY_ITEM**  
+- **`data/SRC_RAW_SALES_BY_ITEM.csv`**  
   Item-level sales transactions where `SALE_ID` may repeat to represent multi-item baskets
+
+⚠️ These files contain non-proprietary data, imagined for demonstrating SQL reporting and KPI analysis.
 
 ### Reporting Layer
 - **VW_REPORTING_TABLE**  
@@ -113,6 +116,8 @@ Sales are attributed to events using an event time window:
 
 ## How to Run the Project
 
+1. Run `00_schema.sql` to create tables.
+2. Load the CSVs from `/data` into the tables using your preferred method.
 
 
 ---
