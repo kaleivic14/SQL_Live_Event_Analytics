@@ -1,5 +1,6 @@
 -- 00_schema.sql
 
+-- Event calendar that will provide details to our data source
 CREATE OR REPLACE TABLE LKP_EVENTS_CALENDAR (
   EVENT_TYPE            VARCHAR(),
   EVENT_DATE            DATE(),
@@ -16,6 +17,7 @@ CREATE OR REPLACE TABLE LKP_EVENTS_CALENDAR (
   TOTAL_ATTENDANCE      NUMBER()
 );
 
+-- Location table with details about each stand
 CREATE OR REPLACE TABLE LKP_STAND_LOCATIONS (
   VENDOR_ID    VARCHAR(),
   STAND_NAME   VARCHAR(),
@@ -24,6 +26,7 @@ CREATE OR REPLACE TABLE LKP_STAND_LOCATIONS (
   ARENA_LEVEL  VARCHAR()
 );
 
+-- Items table with categorizations to disect the sales data further
 CREATE OR REPLACE TABLE LKP_ITEM_DETAILS (
   ITEM_NAME        VARCHAR(),
   ITEM_ID          VARCHAR(),
@@ -34,6 +37,7 @@ CREATE OR REPLACE TABLE LKP_ITEM_DETAILS (
   ITEM_SUBCATEGORY VARCHAR()
 );
 
+-- Source of all sales we will analyize
 CREATE OR REPLACE TABLE SRC_RAW_SALES_BY_ITEM (
   SALE_ID        VARCHAR(),
   SALE_TIME      TIMESTAMP(),
