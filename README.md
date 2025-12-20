@@ -76,40 +76,64 @@ Sales are attributed to events using an event time window:
 ## Analysis Progression
 
 ### 1. Core KPI Analysis  
+**File:** `02_core_kpis.sql`
 
+- Event-level revenue, units, and transactions
+- Attendance-normalized KPIs for fair comparisons across events
 
 ---
 
 ### 2. Attendance Segment Performance  
+**File:** `03_attendance_segments.sql`
 
+- Revenue and transactions by arena level
+- Segment-level per-cap analysis (General, Club, Suite, Courtside)
 
 ---
 
 ### 3. Stand & Operational Performance  
+**File:** `04_stand_performance.sql`
 
-
+- Stand-level revenue and throughput
+- Performance by department, stand type, and arena level
+- Identification of high-impact operational locations
 
 ---
 
 ### 4. Item Mix & Estimated Margin  
+**File:** `05_item_mix_margin.sql`
 
-
+- Item-level volume and revenue
+- Estimated COGS using item cost
+- Estimated gross margin and margin percentage
 
 ---
 
 ### 5. Time-Based Demand Analysis  
+**File:** `06_time_buckets_15min.sql`
 
+- 15-minute demand buckets relative to event start
+- Identification of peak sales windows
+- POS throughput proxy (transactions per POS)
 
 ---
 
 ### 6. Discounts & Promotions  
+**File:** `07_discounts_promos.sql`
 
+- Revenue and units by discount type
+- Discount dollars and discount rate by event type
 
 
 ---
 
 ### 7. Data Quality Validation  
+**File:** `08_data_quality_checks.sql`
 
+- Missing item or stand mappings
+- Duplicate line-item inflation risk
+- Suspicious sales or unit values
+- Event attribution gaps
 
 
 ---
@@ -118,7 +142,15 @@ Sales are attributed to events using an event time window:
 
 1. Run `00_schema.sql` to create tables.
 2. Load the CSVs from `/data` into the tables using your preferred method.
-
+3. Create the reporting view using `01_vw_reporting_table.sql`
+4. Execute analysis files in order:
+   - `02_core_kpis.sql`
+   - `03_attendance_segments.sql`
+   - `04_stand_performance.sql`
+   - `05_item_mix_margin.sql`
+   - `06_time_buckets_15min.sql`
+   - `07_discounts_promos.sql`
+   - `08_data_quality_checks.sql`
 
 ---
 
